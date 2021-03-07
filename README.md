@@ -1,4 +1,4 @@
-# Web  front-end for Firestore event log
+# Example Web front-end for Firestore
 
 ## To try this example:
 
