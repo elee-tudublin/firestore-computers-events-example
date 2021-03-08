@@ -10,8 +10,9 @@ async function getAllComputers() {
     try {
       // get all documents from the collection
       const compDocs = await getAllDocs('computers');
-      computers = compDocs.map((doc) => {
+      computersArray = compDocs.map((doc) => {
         // construct and return a new Computer object for each one found
+        // it will be added to the computersArray.
         return new Computer(
           doc.id,
           doc.data().name,
@@ -23,7 +24,7 @@ async function getAllComputers() {
       console.location('firestore error getting all computers: ',err);
     }
     // return the list of computers (an array)
-    return computers;
+    return computersArray;
   }
 
 
@@ -35,7 +36,7 @@ async function getComputerById(compId) {
     try {
       // Get the computer document data
       const docData = doc.data();
-      // construct and return a new Computer object
+      // construct and return a new Computer object based on the doc
       return new Computer(
         doc.id,
         docData.name,
