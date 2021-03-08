@@ -66,7 +66,7 @@ function displayComputerList(computers) {
             onclick="updateEventsView('${comp.id}')">${comp.name}</a>`;
   });
 
-  // use  unshift to add a 'Show all' link at the start of the array of compLinks
+  // use unshift to add a 'Show all' link at the start of the array of compLinks
   compLinks.unshift(`<a href="#" 
                       class="list-group-item 
                       list-group-item-action" 
@@ -77,8 +77,8 @@ function displayComputerList(computers) {
   computerList.innerHTML = compLinks.join('');
 }
 
-// Get events for a given computer id
-// display the events returned
+// 1. Get events for a given computer id
+// 2. Display the events found
 async function updateEventsView(compRef) {
   const events = await getEventsByComputerId(compRef);
   console.log(events);
@@ -86,7 +86,7 @@ async function updateEventsView(compRef) {
 }
 
 // Get JSON array of events
-// Then pass that data to 
+// Then pass that data for display
 async function loadAndDisplayData() {
   // load all events and display
   // use the event repository to get the data
