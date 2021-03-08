@@ -55,17 +55,25 @@ function displayEventList(events) {
   eventRows.innerHTML = tableRows.join('');
 }
 
+// Display the computer links in the left menu
 function displayComputerList(computers) {
-  // Returns an HTML link for each category in the array
+  // Returns an HTML link for each computer  in the array
   const compLinks = computers.map(comp => {
-    // The link has an onclick handler which will call updateProductsView(id) pasing the category id as a parameter
-    return `<a href="#" class="list-group-item list-group-item-action" onclick="updateEventsView('${comp.id}')">${comp.name}</a>`;
+    // The link has an onclick handler which will call updateEventsView(id)
+    // passing the computer id as a parameter
+    return `<a href="#" 
+            class="list-group-item list-group-item-action" 
+            onclick="updateEventsView('${comp.id}')">${comp.name}</a>`;
   });
 
   // use  unshift to add a 'Show all' link at the start of the array of compLinks
-  compLinks.unshift(`<a href="#" class="list-group-item list-group-item-action" onclick="loadAndDisplayData()">Show all</a>`);
+  compLinks.unshift(`<a href="#" 
+                      class="list-group-item 
+                      list-group-item-action" 
+                      onclick="loadAndDisplayData()">Show all</a>`
+  );
 
-  // Set the innerHTML of the productRows element = the links contained in complinks
+  // Set the innerHTML of the computerList element = the links contained in complinks
   computerList.innerHTML = compLinks.join('');
 }
 
