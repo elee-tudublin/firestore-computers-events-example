@@ -76,18 +76,20 @@ async function updateEventsView(compRef) {
 }
 
 // Get JSON array of events
-// Async call
+// Then pass that data to 
 async function loadAndDisplayData() {
-  // Load all computers and display
-  // load all events and display 
-  const computers = await getAllComputers(); //await getAllDocs(COMPUTER_COLLECTION);
-  displayComputerList(computers);
-  console.log('computers: ', computers);
-
-  // load all events and display 
+  // load all events and display
+  // use the event repository to get the data
   const events = await getAllEvents();
   console.log('events:', events);
   displayEventList(events);
+
+  // Load all computers and display
+  // use the computer repository to get the data
+  const computers = await getAllComputers();
+  // Display the data (function in this file)
+  displayComputerList(computers);
+  console.log('computers: ', computers);
 }
 
 
