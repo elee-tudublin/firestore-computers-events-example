@@ -77,6 +77,8 @@ function displayComputerList(computers) {
   computerList.innerHTML = compLinks.join('');
 }
 
+// Get events for a given computer id
+// display the events returned
 async function updateEventsView(compRef) {
   const events = await getEventsByComputerId(compRef);
   console.log(events);
