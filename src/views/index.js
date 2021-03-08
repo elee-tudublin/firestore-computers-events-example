@@ -16,6 +16,10 @@ function getAlertStyle(level) {
     alert: 'alert-danger',
     icon: 'bi bi-bug-fill'
   };
+  const warning = {
+    alert: 'alert-warning',
+    icon: 'bi bi-exclamation-triangle'
+  };
   const information = {
     alert: 'alert-light',
     icon: 'bi bi-info-circle-fill'
@@ -25,6 +29,8 @@ function getAlertStyle(level) {
   switch (level) {
     case 'error':
       return error;
+    case 'warning':
+      return warning;
     case 'information':
       return information;
     default:
