@@ -13,15 +13,15 @@ const computerList = document.getElementById('computerList');
 function getAlertStyle(level) {
   // objects to store style settings for each level
   const error = {
-    alert: 'alert-danger',
+    alert: 'alert alert-danger',
     icon: 'bi bi-bug-fill'
   };
   const warning = {
-    alert: 'alert-warning',
+    alert: 'alert alert-warning',
     icon: 'bi bi-exclamation-triangle'
   };
   const information = {
-    alert: 'alert-light',
+    alert: 'alert alert-light',
     icon: 'bi bi-info-circle-fill'
   };
 
@@ -48,7 +48,7 @@ function displayEventList(events) {
   const tableRows = events.map(event => {
     // Get the styling object for this level - for use below
     const levelStyle = getAlertStyle(event.level);
-    return `<tr class="alert ${levelStyle.alert}">
+    return `<tr class="${levelStyle.alert}">
           <td><i class="${levelStyle.icon}"></i></td>
           <td>${event.type}</td>
           <td>${event.level}</td>
