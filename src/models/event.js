@@ -1,7 +1,6 @@
 /*
   Defines the Event data model used in the app and database
 */
-
 function Event(id = 0, type, level, timeStamp, computer, service, userName, description) {
   this.id = id;
   this.type = type;

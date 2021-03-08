@@ -5,11 +5,14 @@
 // Get all computers
 // First get documents from the collection
 // Then convert to an array of Event objects
+//
 async function getAllComputers() {
-    let computers;
+  // Array for computers
+  let computersArray;
     try {
       // get all documents from the collection
       const compDocs = await getAllDocs('computers');
+
       computersArray = compDocs.map((doc) => {
         // construct and return a new Computer object for each one found
         // it will be added to the computersArray.
@@ -23,13 +26,14 @@ async function getAllComputers() {
     } catch (err) {
       console.location('firestore error getting all computers: ',err);
     }
-    // return the list of computers (an array)
+    // return the list of computers
     return computersArray;
   }
 
 
 // Get a single computer by id
 // First get from the firestore collection, then return a new Computer Object 
+//
 async function getComputerById(compId) {
     // Get a computer doc with matching id
     const doc = await getDocById('computers', compId);

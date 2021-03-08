@@ -10,6 +10,7 @@ firebase.analytics();
 const database = firebase.firestore();
 
 // Get all docs from a collection given by name
+//
 async function getAllDocs(collectionName) {
   // Declare empty array for documents
   let documents = [];
@@ -30,6 +31,7 @@ async function getAllDocs(collectionName) {
 }
 
 // Get a document matching a given id from a given named collection
+//
 async function getDocById(collectionName, docId) {
   try {
     // Find the doc natching docId in the collection and return it
@@ -42,6 +44,7 @@ async function getDocById(collectionName, docId) {
 
 // Get a document reference - required to resolve reference fields in a collection 
 // https://stackoverflow.com/questions/53140913/querying-by-a-field-with-type-reference-in-firestore
+//
 async function getDocRef(collectionName, id) {
   try {
     // Obtain a reference to the document matching id and return it

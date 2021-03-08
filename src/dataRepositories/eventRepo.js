@@ -2,8 +2,10 @@
   Functions used to work with Event related data
 */
 
+//
 // Get all events as a list (array) of Event Objects
 // Also replace the Computer id with name in each event
+//
 async function getAllEvents() {
   // First get all documents from the collection named events
   const eventDocs = await getAllDocs('events');
@@ -16,8 +18,8 @@ async function getAllEvents() {
     // Get data from the current event doc
     const event = await doc.data();
     // Show the computer name instead of id for each event
-    // We need to get the computer associated with this event (if it exists)
-    // To find its name...
+    // First we need to get the computer associated with this event (if it exists)
+    // To find its name (or just use the entire object)...
     if (event.computer) {
       // Get the document for the associated computer
       let comp = await event.computer.get();
@@ -31,7 +33,6 @@ async function getAllEvents() {
       event.type,
       event.level,
       event.timeStamp,
-      // the computer (using this to replace the id value)
       // the computer object includes everything but could use computer.name 
       computer,
       event.service,
@@ -42,14 +43,16 @@ async function getAllEvents() {
 
   // await Promise.all to make sure all async calls from array map have completed
   // then return eventsArray
+  //
   return await Promise.all(eventsArray);
 }
 
-// Get all events for a computer by id
+//
+// Get all events for a computer by (computer) id
+//
 async function getEventsByComputerId(compId) {
   // This computer is common to all the events here
   const computer = await getComputerById(compId);
-  // To store the list of event Objects
   let eventsArray;
 
   try {
@@ -77,7 +80,6 @@ async function getEventsByComputerId(compId) {
     // catch errors
     console.log('firestore error getting events by id: ', err);
   }
-
   // await Promise.all to make sure all async calls from array map have completed
   // then return eventsArray
   return await Promise.all(eventsArray);

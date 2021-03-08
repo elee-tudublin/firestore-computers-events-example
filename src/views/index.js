@@ -9,6 +9,7 @@ const computerList = document.getElementById('computerList');
 // This function returns a Bootstrap alert class and icon based on event level
 // alerts - https://getbootstrap.com/docs/5.0/components/alerts/
 // icons - https://icons.getbootstrap.com/
+//
 function getAlertStyle(level) {
   // objects to store style settings for each level
   const error = {
@@ -31,6 +32,8 @@ function getAlertStyle(level) {
   }
 }
 
+// Display event objects in a table element
+//
 function displayEventList(events) {
   // Use the Array map method to iterate through the array of message documents
   // Each message will be formated as HTML table rows and added to the array
@@ -56,6 +59,7 @@ function displayEventList(events) {
 }
 
 // Display the computer links in the left menu
+//
 function displayComputerList(computers) {
   // Returns an HTML link for each computer  in the array
   const compLinks = computers.map(comp => {
@@ -79,6 +83,7 @@ function displayComputerList(computers) {
 
 // 1. Get events for a given computer id
 // 2. Display the events found
+//
 async function updateEventsView(compRef) {
   const events = await getEventsByComputerId(compRef);
   console.log(events);
@@ -87,6 +92,7 @@ async function updateEventsView(compRef) {
 
 // Get JSON array of events
 // Then pass that data for display
+//
 async function loadAndDisplayData() {
   // load all events and display
   // use the event repository to get the data
@@ -104,6 +110,7 @@ async function loadAndDisplayData() {
 
 
 // Update page with AJAX call ever 5000ms
+//
 function doPoll() {
   loadAndDisplayData();
   setTimeout(doPoll, 5000);
